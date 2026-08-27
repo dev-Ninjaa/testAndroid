@@ -1,5 +1,5 @@
-use tauri::{AppHandle, Manager};
-use serde::{Deserialize, Serialize};
+use tauri::Manager;
+use serde::Deserialize;
 use std::sync::Mutex;
 
 mod discord_ffi;

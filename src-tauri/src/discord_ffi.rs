@@ -97,7 +97,7 @@ impl DiscordHandle {
         }
     }
     
-    pub fn set_track(&self, title: &str, artist: &str, video_id: &str) {
+    pub fn set_track(&self, title: &str, artist: &str, _video_id: &str) {
         // Store for later use with timestamps
         if let Ok(bridge) = self.bridge.lock() {
             if let Some(b) = bridge.as_ref() {

@@ -34,7 +34,14 @@ struct DiscordActivity {
 // Simple state management
 static bool is_connected = false;
 static char app_id[32] = "";
-static DiscordActivity current_activity = {0};
+static DiscordActivity current_activity = {
+    "", // details
+    "", // state
+    0,  // start_timestamp
+    0,  // end_timestamp
+    "", // large_image
+    ""  // large_text
+};
 
 #ifdef __ANDROID__
 // Set JNI environment (called from Tauri Android lifecycle)

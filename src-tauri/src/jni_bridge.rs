@@ -1,9 +1,7 @@
 #[cfg(target_os = "android")]
 use jni::JNIEnv;
 #[cfg(target_os = "android")]
-use jni::objects::{JClass, JObject};
-#[cfg(target_os = "android")]
-use jni::sys::{jlong, jobject};
+use jni::objects::JClass;
 
 #[cfg(target_os = "android")]
 #[no_mangle]
@@ -22,9 +20,11 @@ pub extern "system" fn Java_com_maple_music_MainActivity_initializeDiscordBridge
     
     // For now, just log that initialization was called
     #[cfg(target_os = "android")]
-    android_log_sys::__android_log_write(
-        android_log_sys::LogPriority::DEBUG as i32,
-        b"DiscordRPC\0".as_ptr() as *const i8,
-        b"JNI bridge initialized\0".as_ptr() as *const i8,
-    );
+    unsafe {
+        android_log_sys::__android_log_write(
+            android_log_sys::LogPriority::DEBUG as i32,
+            b"DiscordRPC\0".as_ptr() as *const u8,
+            b"JNI bridge initialized\0".as_ptr() as *const u8,
+        );
+    }
 }
