@@ -1,4 +1,3 @@
-use tauri::Manager;
 use serde::Deserialize;
 use std::sync::Mutex;
 

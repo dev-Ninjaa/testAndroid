@@ -11,7 +11,7 @@ pub extern "system" fn Java_com_maple_music_MainActivity_initializeDiscordBridge
 ) {
     // Get JavaVM pointer
     let jvm = env.get_java_vm().unwrap();
-    let jvm_ptr = jvm.get_java_vm_pointer() as *mut std::ffi::c_void;
+    let _jvm_ptr = jvm.get_java_vm_pointer() as *mut std::ffi::c_void;
     
     // Note: This is a simplified version. In production, you'd want to:
     // 1. Get the activity context properly
