@@ -56,16 +56,14 @@ jobs:
       - name: Generate app icons
         working-directory: src-tauri
         run: |
-          # Create a simple colored PNG icon if not exists
           if [ ! -f icons/icon.png ]; then
             mkdir -p icons
-            # Create a minimal 1024x1024 PNG using Python PIL
-            python3 -c "
-from PIL import Image
-img = Image.new('RGB', (1024, 1024), color=(103, 126, 234))
-img.save('icons/icon.png')
-print('Icon created')
-            "
+            python3 << 'EOF'
+          from PIL import Image
+          img = Image.new('RGB', (1024, 1024), color=(103, 126, 234))
+          img.save('icons/icon.png')
+          print('Icon created')
+          EOF
           fi
           cargo tauri icon icons/icon.png
 
