@@ -1,0 +1,32 @@
+[package]
+name = "maple-music"
+version = "0.1.0"
+description = "A simple music player with Discord Rich Presence"
+authors = ["you"]
+license = ""
+repository = ""
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0", features = [] }
+cc = "1.0"
+
+[dependencies]
+tauri = { version = "2.0", features = ["devtools"] }
+tauri-plugin-shell = "2.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[target.'cfg(not(target_os = "android"))'.dependencies]
+discord-rich-presence = "0.2"
+
+[target.'cfg(target_os = "android")'.dependencies]
+jni = "0.21"
+android_log-sys = "0.3"
+
+[target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+tauri-plugin-opener = "2.0"
+
+[lib]
+name = "maple_music_lib"
+crate-type = ["lib", "cdylib", "staticlib"]

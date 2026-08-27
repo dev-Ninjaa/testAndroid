@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maple Music</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player-container">
+        <h1>🍁 Maple Music</h1>
+        
+        <div class="player-card">
+            <div class="song-info">
+                <h2 id="song-title">Select a song</h2>
+                <p id="song-artist">Artist</p>
+            </div>
+            
+            <audio id="audio-player" controls>
+                Your browser does not support the audio element.
+            </audio>
+            
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+            </div>
+            
+            <div class="time-info">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div class="controls">
+                <button id="prev-btn">⏮</button>
+                <button id="play-pause-btn">▶️</button>
+                <button id="next-btn">⏭</button>
+            </div>
+        </div>
+        
+        <div class="playlist">
+            <h3>Playlist</h3>
+            <ul id="playlist-items">
+                <!-- Playlist items will be added here -->
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
