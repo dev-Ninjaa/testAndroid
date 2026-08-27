@@ -59,8 +59,13 @@ jobs:
           # Create a simple colored PNG icon if not exists
           if [ ! -f icons/icon.png ]; then
             mkdir -p icons
-            # Create a minimal 1024x1024 PNG using ImageMagick (pre-installed on Ubuntu runners)
-            convert -size 1024x1024 xc:'#677EEA' icons/icon.png
+            # Create a minimal 1024x1024 PNG using Python PIL
+            python3 -c "
+from PIL import Image
+img = Image.new('RGB', (1024, 1024), color=(103, 126, 234))
+img.save('icons/icon.png')
+print('Icon created')
+            "
           fi
           cargo tauri icon icons/icon.png
 
