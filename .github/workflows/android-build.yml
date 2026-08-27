@@ -56,6 +56,12 @@ jobs:
       - name: Generate app icons
         working-directory: src-tauri
         run: |
+          # Create a simple colored PNG icon if not exists
+          if [ ! -f icons/icon.png ]; then
+            mkdir -p icons
+            # Create a minimal 1024x1024 PNG using ImageMagick (pre-installed on Ubuntu runners)
+            convert -size 1024x1024 xc:'#677EEA' icons/icon.png
+          fi
           cargo tauri icon icons/icon.png
 
       - name: Cache Cargo dependencies
